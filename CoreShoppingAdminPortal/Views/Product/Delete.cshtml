@@ -1,0 +1,66 @@
+﻿@model CoreShoppingAdminPortal.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductId)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductName)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductQty)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductPrice)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductImage)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductDescription)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.VendorId)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductCategoryId)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>
+                @Html.DisplayFor(Model => Model.ProductId)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductName)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductQty)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductPrice)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductImage)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.VendorId)
+                <br />
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductCategoryId)
+                <br />
+            </td>
+        </tr>
+
+    </tbody>
+
+
+</table>
+
+@using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+{
+<center>
+    <input type="submit" value="submit" class="btn btn-success" />&nbsp;
+    <button class="btn btn-success" asp-controller="Product" asp-action="Index">Back</button>
+</center>
+}

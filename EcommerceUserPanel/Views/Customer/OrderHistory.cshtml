@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = "OrderHistory";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+}
+<style>
+    .tb {
+        margin-left: 100px;
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        width: 190px;
+        position: fixed;
+        z-index: 1;
+        top: 20px;
+        left: -10px;
+        background: black;
+        overflow-x: hidden;
+        padding: 8px 0;
+        height: 700px;
+    }
+
+        .sidenav a {
+            padding: 50px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+
+            .sidenav a:hover {
+                color: #064579;
+            }
+
+    .main {
+        margin-left: 140px; /* Same width as the sidebar + left position in px */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    media screen and (max-height: 450px) {
+        .sidenav
+
+    {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+    }
+</style>
+
+<div class="sidenav">
+
+    <a class="nav-link" asp-controller="customer" asp-action="OrderHistory">My Orders</a>
+    <a class="nav-link" asp-controller="customer" asp-action="CustomerEdit">Edit Profile</a>
+    <a class="nav-link" asp-controller="customer" asp-action="Password">Change Password</a>
+    <a class="nav-link" asp-controller="Home" asp-action="Feedback">Feedback</a>
+</div>
+<h2>OrderHistory</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>OrderId</th>
+            <th>OrderDate</th>
+            <th>OrderPrice</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in ViewBag.ord)
+        {
+
+            <tr>
+                <td>@item.OrderId</td>
+                <td>@item.OrderDate</td>
+                <td>@item.OrderPrice</td>
+                <td>
+                    <a asp-controller="Customer" asp-action="orderdetail" class="btn btn-info"
+                       asp-route-id="@item.OrderId">Products</a>
+                </td>
+            </tr>
+        }
+
+    </thead>
+</table>
+<a asp-controller="Home" asp-action="Index" class="btn btn-info">Back</a>
+

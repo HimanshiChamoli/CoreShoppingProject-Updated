@@ -1,0 +1,108 @@
+﻿@model EcommerceUserPanel.Models.Customers
+@{
+    ViewData["Title"] = "ViewProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="~/css/Profile.css" rel="stylesheet" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+    .tb {
+        margin-left: 100px;
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        width: 190px;
+        position: fixed;
+        z-index: 1;
+        top: 20px;
+        left: -10px;
+        background: black;
+        overflow-x: hidden;
+        padding: 8px 0;
+        height: 700px;
+    }
+
+        .sidenav a {
+            padding: 50px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+
+            .sidenav a:hover {
+                color: #064579;
+            }
+
+    .main {
+        margin-left: 140px; /* Same width as the sidebar + left position in px */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    media screen and (max-height: 450px) {
+        .sidenav
+
+    {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+    }
+</style>
+<div class="sidenav">
+   
+    <a class="nav-link" asp-controller="customer" asp-action="OrderHistory">My Orders</a>
+    <a class="nav-link" asp-controller="customer" asp-action="CustomerEdit">Edit Profile</a>
+    <a class="nav-link" asp-controller="customer" asp-action="Password">Change Password</a>
+    <a class="nav-link" asp-controller="Home" asp-action="Feedback">Feedback</a>
+</div>
+<h5>
+    User Profile
+
+</h5><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 img">
+
+            <img src="~/images/profile.png" class="img-rounded">
+
+        </div>
+        <div class="col-md-6 details">
+
+
+            <p>
+
+                Name:  @Html.DisplayFor(Model => Model.FirstName)
+                @Html.DisplayFor(Model => Model.LastName)<br>
+                <br>
+                EmailId: @Html.DisplayFor(Model => Model.EmailId)<br>
+                Password: @Html.DisplayFor(Model => Model.Password)<br>
+                UserName: @Html.DisplayFor(Model => Model.Username) <br>
+                Address: @Html.DisplayFor(Model => Model.Address)<br>
+                PhoneNo: @Html.DisplayFor(Model => Model.PhoneNo)<br>
+                Country: @Html.DisplayFor(Model => Model.Country)<br>
+                State: @Html.DisplayFor(Model => Model.State)<br>
+                Zip: @Html.DisplayFor(Model => Model.Zip)<br><br>
+
+            </p>
+
+        </div>
+    </div>
+</div>
+<center>
+    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Back To List</a>
+</center>
+
+
+
+

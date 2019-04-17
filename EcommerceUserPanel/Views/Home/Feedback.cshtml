@@ -1,0 +1,181 @@
+﻿@model EcommerceUserPanel.Models.Feedbacks
+@{
+    ViewData["Title"] = "Feedback";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<head>
+    <title>Feedback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/images/favicon.ico" />
+    <!--===============================================================================================-->
+    @*<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <!--===============================================================================================-->*@
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <!--===============================================================================================-->
+
+    <style>
+        .feed{
+            margin-top:-80px;
+        }
+        .tb {
+            margin-left: 100px;
+        }
+
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            width: 190px;
+            position: fixed;
+            z-index: 1;
+            top: 20px;
+            left: -10px;
+            background: black;
+            overflow-x: hidden;
+            padding: 8px 0;
+            height: 700px;
+        }
+
+            .sidenav a {
+                padding: 50px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: white;
+                display: block;
+            }
+
+                .sidenav a:hover {
+                    color: #064579;
+                }
+
+        .main {
+            margin-left: 140px; /* Same width as the sidebar + left position in px */
+            font-size: 28px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        media screen and (max-height: 450px) {
+            .sidenav
+
+        {
+            padding-top: 15px;
+        }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+        }
+    </style>
+</head>
+
+<div class="sidenav">
+
+    <a class="nav-link" asp-controller="customer" asp-action="OrderHistory">My Orders</a>
+    <a class="nav-link" asp-controller="customer" asp-action="CustomerEdit">Edit Profile</a>
+    <a class="nav-link" asp-controller="customer" asp-action="Password">Change Password</a>
+    <a class="nav-link" asp-controller="Home" asp-action="Feedback">Feedback</a>
+</div>
+<body>
+
+    <div class="contact1">
+        <div class="container-contact1">
+            <div class="contact1-pic js-tilt" data-tilt>
+                @*<img src="~/images/img-01.png" alt="IMG">*@
+            </div>
+
+            <form class="contact1-form validate-form feed" asp-action="Feedback" asp-controller="Home">
+                <span class="contact1-form-title">
+                    Give Feedback
+                </span>
+                <div class="wrap-input1 validate-input" data-validate="Phone No is required">
+                    <label>Username</label>
+                    <input class="input1" asp-items="ViewBag.feed" value="@ViewBag.cusname" required>
+                    <span class="shadow-input1"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <label asp-for="EmailId">Email Id</label>
+                    <input class="input1" asp-for="EmailId" type="email" id="email" placeholder="Email" required>
+                    <span class="shadow-input1"></span>
+                </div>
+
+
+                <div class="wrap-input1 validate-input" data-validate="Phone No is required">
+                    <label asp-for="PhoneNo">Phone No</label>
+                    <input class="input1" asp-for="PhoneNo" type="text" id="phone" placeholder="Phone" required>
+                    <span class="shadow-input1"></span>
+                </div>
+
+                <div class="wrap-input1 validate-input" data-validate="Message is required">
+                    <label asp-for="Comment">Message</label>
+                    <textarea class="input1" asp-for="Comment" id="comment" placeholder="Message" required></textarea>
+                    <span class="shadow-input1"></span>
+                </div>
+
+
+
+                <div class="container-contact1-form-btn">
+                    <button class="contact1-form-btn" onclick="myFunction()">
+                        Send FeedBack
+                        <span>
+
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function myFunction() {
+            alert("Feedback Successfully Submitted !!!");
+        }
+    </script>
+
+
+
+    <!--===============================================================================================-->
+    @*<script src="vendor/jquery/jquery-3.2.1.min.js"></script>*@
+    @*<!--===============================================================================================-->
+        <script src="vendor/bootstrap/js/popper.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="vendor/tilt/tilt.jquery.min.js"></script>*@
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="~/js/Feedback.js"></script>
+
+</body>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CoreShoppingAdminPortal.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .btn1 {
+        margin-right: 1050px;
+        margin-top: -20px;
+    }
+</style>
+<h2>Index</h2>
+&nbsp;&nbsp;
+<a asp-controller="Product" asp-action="Create"><button type="button" class="btn btn-info btn1">Create</button></a>
+&nbsp;&nbsp;
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductId)</th>
+            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+            @*<th>@Html.DisplayNameFor(model => model.ProductQty)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductPrice)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductImage)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductDescription)</th>
+                <th>@Html.DisplayNameFor(model => model.VendorId)</th>
+                <th>@Html.DisplayNameFor(model => model.ProductCategoryId)</th>*@
+
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pro in Model)
+        {
+
+            <tr>
+                <td>@Html.DisplayFor(modelItem => pro.ProductId)</td>
+                <td>@Html.DisplayFor(modelItem => pro.ProductName)</td>
+                @*<td>@Html.DisplayFor(modelItem => pro.ProductQty)</td>
+                    <td>@Html.DisplayFor(modelItem => pro.ProductPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => pro.ProductImage)</td>
+                    <td>@Html.DisplayFor(modelItem => pro.ProductDescription)</td>
+                    <td>@Html.DisplayFor(modelItem => pro.VendorId)</td>
+                    <td>@Html.DisplayFor(modelItem => pro.ProductCategoryId)</td>*@
+                <td>
+                    <a class="btn btn-dark" asp-controller="Product" asp-action="Details" asp-route-id="@pro.ProductId">Details</a>|
+                    <a class="btn btn-info" asp-controller="Product" asp-action="Edit" asp-route-id="@pro.ProductId">Edit</a>|
+                    <a class="btn btn-danger" asp-controller="Product" asp-action="Delete" asp-route-id="@pro.ProductId">Delete</a>|
+
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

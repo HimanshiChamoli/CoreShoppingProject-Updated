@@ -1,0 +1,40 @@
+﻿@model CoreShoppingAdminPortal.Models.ProductCategory
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+    <h2>Edit Details</h2>
+
+    <form asp-action="Edit" asp-controller="ProductCategory">
+        <div class="form-group row">
+            <input type="hidden" asp-for="ProductCategoryId" />
+            <br />
+            <label for="text" class="col-sm-2 col-form-label" asp-for="ProductCategoryId"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="ProductCategoryId">
+            </div>
+            <label for="text" class="col-sm-2 col-form-label" asp-for="CategoryName"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="CategoryName">
+            </div>
+
+            <label for="text" class="col-sm-2 col-form-label" asp-for="CategoryDescription"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" asp-for="CategoryDescription">
+            </div>
+            </div>
+            @*<br />
+            <label asp-for="ProductCategoryId"></label>
+            <select asp-for="ProductCategoryId"></select>*@
+            <br />
+            <center>
+                <input type="submit" value="Edit" class="btn btn-success" />&nbsp;
+                <button class="btn btn-success" asp-controller="ProductCategory" asp-action="Index">Back</button>
+            </center>
+    </form>
+

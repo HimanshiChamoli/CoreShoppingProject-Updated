@@ -1,0 +1,58 @@
+﻿@model CoreShoppingAdminPortal.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductId)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductName)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductQty)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductPrice)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductImage)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductDescription)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.ProductCategoryId)</th>
+            <th scope="col">@Html.DisplayNameFor(Model => Model.VendorId)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <td>
+                @Html.DisplayFor(Model => Model.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductQty)
+            </td>
+            <td>
+                @Html.DisplayNameFor(Model => Model.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductImage)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayNameFor(Model => Model.ProductCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => Model.VendorId)
+            </td>
+        </tr>
+
+    </tbody>
+
+
+</table>
+
+
+
+@Html.ActionLink("Back to List", "Index")
