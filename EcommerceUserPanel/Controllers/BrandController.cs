@@ -9,21 +9,21 @@ namespace EcommerceUserPanel.Controllers
 {
     public class BrandController : Controller
     {
-        ShoppingDemoooo2Context context = new ShoppingDemoooo2Context();
-        //private readonly ShoppingDemoooo2Context _context;
+        //ShoppingDemoooo2Context context = new ShoppingDemoooo2Context();
+        private readonly ShoppingDemoooo2Context _context;
 
-        //public BrandController(ShoppingDemoooo2Context context)
-        //{
-        //    _context = context;
-        //}
+        public BrandController(ShoppingDemoooo2Context context)
+        {
+            _context = context;
+        }
         public ViewResult Index()
         {
-            var brand = context.Brands.ToList();
+            var brand = _context.Brands.ToList();
             return View(brand);
         }
         public async Task<IActionResult> ProductDisplay(int? id)
         {
-            var p = context.Products.Where(x => x.BrandId == id).ToList();
+            var p = _context.Products.Where(x => x.BrandId == id).ToList();
             return View(p);
         }
 
@@ -35,7 +35,7 @@ namespace EcommerceUserPanel.Controllers
             {
                 return BadRequest();
             }
-            var brand = await context.Brands.FindAsync(id);
+            var brand = await _context.Brands.FindAsync(id);
             if (brand == null)
 
             {

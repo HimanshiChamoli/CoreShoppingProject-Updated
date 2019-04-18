@@ -43,11 +43,11 @@ namespace EcommerceUserPanel
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            //services.AddDbContext<ShoppingDemoooo2Context>(Options =>
-            //{
-            //    Options.UseSqlServer
-            //       (Configuration.GetConnectionString("dbConnection"));
-            //});
+            services.AddDbContext<ShoppingDemoooo2Context>(Options =>
+            {
+                Options.UseSqlServer
+                   (Configuration.GetConnectionString("dbConnection"));
+            });
             services.AddSession();
             services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 

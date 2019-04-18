@@ -10,7 +10,7 @@ using Xunit;
 
 namespace XUnitTestProject1
 {
-    class BrandTestController
+   public class BrandTestController
     {
         private ShoppingDemoooo2Context context;
 
@@ -37,16 +37,16 @@ namespace XUnitTestProject1
         public async void Task_GetBrandBy_Id_Return_OkResult()
         {
             var controller = new BrandController(context);
-            var ProductCategoryId = 1;
-            var data = await controller.Get(ProductCategoryId);
+            var BrandId = 1;
+            var data = await controller.Get(BrandId);
             Assert.IsType<OkObjectResult>(data);
         }
         [Fact]
         public async void Task_GetBrandBy_Id_Return_NoResult()
         {
             var controller = new BrandController(context);
-            var ProductCategoryId = 6;
-            var data = await controller.Get(ProductCategoryId);
+            var BrandId = 6;
+            var data = await controller.Get(BrandId);
             Assert.IsType<NotFoundResult>(data);
         }
         [Fact]
@@ -59,7 +59,7 @@ namespace XUnitTestProject1
             var okResult = data.Should().BeOfType<OkObjectResult>().Subject;
             var brnd = okResult.Value.Should().BeAssignableTo<Brands>().Subject;
             Assert.Equal("Nike", brnd.BrandName);
-            Assert.Equal("Good", brnd.BrandDescription);
+            Assert.Equal("Great", brnd.BrandDescription);
 
         }
         [Fact]

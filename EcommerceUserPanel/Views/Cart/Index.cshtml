@@ -23,7 +23,12 @@
             <td>@Item.products.ProductName</td>
             <td><img src="@Item.products.ProductImage" width="60" /></td>
             <td>@Item.products.ProductPrice</td>
-            <td><a class="btn btn-default" asp-controller="Cart" asp-action="Minus" asp-route-id="@Item.products.ProductId">-</a>@Item.Quantity <a class="btn btn-default" asp-controller="Cart" asp-action="Plus" asp-route-id="@Item.products.ProductId">+</a></td>
+            @if (ViewBag.j == Item.products.ProductId)
+            {
+            <td><a class="btn btn-default" asp-controller="Cart" asp-action="Minus" asp-route-id="@Item.products.ProductId">-</a>@Item.Quantity <a onclick="alert('Product is out of stock')">+</a></td>}
+            else
+            {
+            <td><a class="btn btn-default" asp-controller="Cart" asp-action="Minus" asp-route-id="@Item.products.ProductId">-</a>@Item.Quantity <a class="btn btn-default" asp-controller="Cart" asp-action="Plus" asp-route-id="@Item.products.ProductId">+</a></td>}
             <td>@(Item.products.ProductPrice * Item.Quantity)</td>
         </tr>
     }
