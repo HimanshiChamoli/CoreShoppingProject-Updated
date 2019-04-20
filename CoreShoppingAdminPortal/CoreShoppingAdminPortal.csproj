@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20190417040844_new16.Designer.cs" />
     <Compile Remove="Migrations\20190417042805_DomainContextChanged.cs" />
     <Compile Remove="Migrations\20190417042805_DomainContextChanged.Designer.cs" />
+    <Compile Remove="Migrations\20190420035959_DomainChange1.cs" />
+    <Compile Remove="Migrations\20190420035959_DomainChange1.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

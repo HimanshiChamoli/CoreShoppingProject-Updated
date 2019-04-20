@@ -11,6 +11,9 @@ namespace CoreShoppingAdminPortal.Models
             public int ProductCategoryId { get; set; }
             public string CategoryName { get; set; }
             public string CategoryDescription { get; set; }
+            public List<Product> Products { get; set; }
+        //public int ProductId { get; set; }
+        //    public Product Product { get; set; }
         }
     }
 

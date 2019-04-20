@@ -29,6 +29,34 @@ namespace CoreShoppingAdminPortal.Models
             modelBuilder.Entity<OrderProduct>(build =>
             {
                 build.HasKey(t => new { t.OrderId, t.ProductId });
+                modelBuilder.Entity<Product>()
+               .HasOne(c => c.Category)
+               .WithMany(p =>p.Products)
+               .OnDelete(DeleteBehavior.Cascade);
+
+                modelBuilder.Entity<Product>()
+              .HasOne(v => v.Vendor)
+              .WithMany(p => p.Products)
+              .OnDelete(DeleteBehavior.Cascade);
+
+                modelBuilder.Entity<Feedback>()
+                 .HasOne(c => c.Customer)
+                 .WithMany(f => f.Feedbacks)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+                modelBuilder.Entity<Order>()
+                .HasOne(c => c.Customer)
+                .WithMany(o => o.Orders)
+                .OnDelete(DeleteBehavior.Cascade);
+
+                modelBuilder.Entity<Vendor>(entity =>
+                {
+                    entity.Property(e => e.VendorName)
+                    .HasColumnName("VendorName")
+                    .HasMaxLength(25)
+                .IsUnicode(false);
+                });
+                base.OnModelCreating(modelBuilder);
             });
         }
     }
